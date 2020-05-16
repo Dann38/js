@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашнее задание 1</title>
+    <style>
+        p{
+            width: 450px;
+        }
+        .gray_i{
+            color: gray;
+            font-weight: 200;
+            display: inline-block;
+        }
+        .eq{
+            width:800px; 
+        }
+        .red{
+            color: red;
+            text-decoration:line-through;
+        }
+        .green{
+            color: limegreen;
+            font-family: serif;    
+        }
+        .yellow{
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <H1>Домашнее задание 1</H1>
+    <H2><a href="#" id="task1">Задание 1</a></H2>
+    <p>Задать температуру в градусах по Цельсию. Вывести в alert соответствующую температуру в
+градусах по Фаренгейту. Подсказка: расчёт идёт по формуле:
+Tf = (9 / 5) * Tc + 32, где Tf – температура по Фаренгейту, Tc – температура по Цельсию</p>
+    <H2><a href="#" id="task2">Задание 2</a></H2>
+    <p>Объявить две переменные: admin и name. Записать в name строку "Василий". Скопировать
+значение из name в admin. Вывести в консоль переменную admin (должно вывести "Василий").</p>
+   <H2><a href="#" id="task3" >Задание 3</a></H2>
+   <p >Вывести в консоль значения выражений и объяснить почему получились такие значения
+используя комментарии к каждому выражению: </p><p class="eq"><br>
+       10 + 10 + "10" <span class="gray_i"id="task3_1"></span><br> 
+       10 + "10" + 10 <span class="gray_i"id="task3_2"></span><br>
+       10 + 10 + +"10" <span class="gray_i"id="task3_3"></span><br>
+       10 / -"" <span class="gray_i"id="task3_4"></span><br>
+       10 / +"2,5"<span class="gray_i"id="task3_5"></span></p>
+    
+    <H2><a href="#" id="task4">Задание 4</a></H2>
+    <p>
+       
+        <span id="task4_1">let mode = "normal";</span><br>
+        <span id="task4_2">let my_valu3 = 102;</span><br>
+        <span id="task4_3">let 3my_value3 = "102";</span><br>
+        <span id="task4_4">let __hello__ = "world";</span><br>
+        <span id="task4_5">let $$$ = "money";</span><br>
+        <span id="task4_6">let !0_world = true;</span><br>
+    </p>      
+    <script>
+        task1.onclick = function(){
+            let Tc = prompt("Введите температуру в градусах Цельсия");
+            let Tf = (9 / 5) * Tc + 32;
+            alert(`${Tc}∘C = ${Tf}∘F`);
+        }
+        
+        task2.onclick = function(){
+            let admin = null;
+            let name = null;
+            name = "Василий";
+            admin = name;
+            console.log(admin);
+            alert(`admin = ${admin} | name = ${name}`)
+        }
+        
+        task3.onclick = function(){
+            
+            task3_1.textContent = '= "2010" //складывает 10 и 10, затем склеивает строки';
+            console.log(10+10+"10"); //складывает 10 и 10, затем склеивает строки
+            
+            task3_2.textContent = '= "101010" //склеивает число со строкой (10+10=1010), приклеивает 10';
+            console.log(10+"10"+10); //склеивает число со строкой (10+10=1010), затем еще приклеивает 10
+            
+            task3_3.textContent = '=30 //представляет что +"10" - это число, затем складывает 10+10+10';
+            console.log(10 + 10 + +"10"); //представляет что +"10" - это число, затем складывает 10+10+10 = 30
+            
+            task3_4.textContent = '=-∞ //отнимает от строки -0 получает -0, делит на -0 (-∞)';
+            console.log(10 / -""); //отнимает от строки -0 получает -0, делит на -0 (-∞)
+            
+            task3_5.textContent = '=NaN//не может представить строку как 2.5, число деленное на NaN = NaN'; 
+            console.log(10/ +"2,5"); //не может представить строку как 2.5, число деленное на NaN = NaN
+        }
+        
+        task4.onclick = function(){
+            task4_1.classList.add('green');
+            task4_2.classList.add('green');
+            task4_3.classList.add('red');
+            task4_4.classList.add('yellow');
+            task4_5.classList.add('yellow');
+            task4_6.classList.add('red');
+        }
+    </script>
+</body>
+</html>
