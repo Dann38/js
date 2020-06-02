@@ -1,0 +1,61 @@
+.win{
+    padding: 15px;
+    margin: 100px 100px;
+    width: 350px;
+    min-height: 150px;
+    background-color: gainsboro;
+    box-shadow: 12px 12px 2px 1px rgba(0,0, 0, .2)
+}
+.no-display {
+    display: none;
+}
+.products{
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    flex-wrap: wrap;
+}
+.product{
+    position: relative;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid black;
+    box-shadow: 12px 12px 2px 1px rgba(0,0, 0, .2);
+    width: 180px;
+    min-height: 300px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.info{
+    color: white;
+    margin: -15px 0 0 -15px;
+    background-color: rgba(0,0, 0, .8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.table{
+    width: 380px;
+    height: 380px;
+}
+.row{
+    display: flex;
+}
+.cell{
+    text-align: center;
+    background-color: gainsboro;
+    width: 40px;
+    height: 40px;
+}
+.black{
+    background-color: black; 
+}
+.white{
+    background-color: white;
+}
+.
+signature{
+    font-size: 40px;
+}
