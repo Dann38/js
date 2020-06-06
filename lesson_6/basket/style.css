@@ -32,12 +32,15 @@
 }
 
 .basket{
+    position:relative;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
 }
 .bill{
+    top: 40px;
+    position:absolute;
     width: 250px;
     background-color: #efefef;
 }
@@ -56,4 +59,13 @@ img{
 .price_product{
     width: 100px;
     text-align: center;
+}
+.del_product{
+    width: 40px;
+}
+.btn_del_product:hover {
+    background-color: red;
+}
+.no_display{
+    display: none;
 }

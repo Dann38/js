@@ -1,6 +1,6 @@
 let products_html = document.querySelector(".products");
 let table_bill = document.querySelector(".tbl_bill");
-
+let btn_Basket = document.querySelector(".btn_basket");
 let products = [
     ['product_1', 'https://placeimg.com/640/480/arch', 1000],
     ['product_2', 'https://placeimg.com/640/480/see', 100],
@@ -10,7 +10,6 @@ let products = [
 ];
 
 let arrayBasket = [];
-
 for (let i=0; i <= 4; i++){
     products_html.innerHTML += ''+
     '<div id_product='+i+' class="product">'+
@@ -21,6 +20,13 @@ for (let i=0; i <= 4; i++){
     '</div>';
 }
 
+
+
+
+function removeFromBasket(event){
+    arrayBasket.splice(this.attributes.id_remove.value);
+    updateBasket();
+}
 function getIndexInBasket(id_product){
     for (let i=0; i < arrayBasket.length; i++){
         if (arrayBasket[i][0] == id_product){
@@ -33,10 +39,12 @@ function updateBasket(){
     for (let i = 0; table_bill.rows.length != 0; i++){
         table_bill.removeChild(table_bill.childNodes[0]);
     }
+    
     table_bill.innerHTML +='<tr class="head_tbl">'+
                         '<th class="name_product">Товар</th>'+
                         '<th class="count_product">Кол-во</th>'+
                         '<th class="price_prosuct">Цена</th>'+
+                        '<th class="del_product"></th>'+
                     '</tr>';
     for (let i = 0; i < arrayBasket.length; i++){
         table_bill.innerHTML += ''+
@@ -44,12 +52,16 @@ function updateBasket(){
                 '<td>'+arrayBasket[i][1]+'</td>'+
                 '<td>'+arrayBasket[i][3]+'</td>'+
                 '<td>'+(arrayBasket[i][3]*arrayBasket[i][2])+'</td>'+
+                '<td id_remove='+i+' class="btn_del_product">Del</td>'+
             '</tr>';
     }
-}
-
-function addBasket(id_product){
+    let btns_del = document.querySelectorAll(".btn_del_product");
     
+    for (let i = 0; i < btns_del.length; i++){
+        btns_del[i].addEventListener('click', removeFromBasket);
+    }
+}
+function addBasket(id_product){   
     let indexInBasket = getIndexInBasket(id_product); 
     if (indexInBasket == -1) {
         arrayBasket.push([id_product, products[id_product][0], products[id_product][2], 1])
@@ -59,11 +71,18 @@ function addBasket(id_product){
     updateBasket();
     
 }
-
 function clickBuy(event){
     addBasket(this.attributes.id_product.value);
 }
 
+function displayBasket(){
+    console.log(btn_Basket.parentElement.childNodes[3]);
+    btn_Basket.parentElement.childNodes[3].classList.toggle("no_display");
+}
+
+
 for (let i=1; i<=5; i++){
     products_html.childNodes[i].addEventListener('click', clickBuy)
 }
+
+btn_Basket.addEventListener('click', displayBasket);
